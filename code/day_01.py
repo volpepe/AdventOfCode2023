@@ -14,8 +14,7 @@ def problem_2(inp: List[str]):
     wn_matches = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5,
                   'six': 6, 'seven': 7, 'eight': 8, 'nine': 9}
     for line in inp:
-        matches = re.finditer(r'(?=(one|two|three|four|five|six|seven|eight|nine|\d))', line)
-        matches = [match.group(1) for match in matches]
+        matches = re.findall(r'(?=(one|two|three|four|five|six|seven|eight|nine|\d))', line)
         for i in range(len(matches)):
             if matches[i] in wn_matches:
                 matches[i] = wn_matches[matches[i]]
